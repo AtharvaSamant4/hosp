@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Patient</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #cbebff 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+
+        h1 {
+            color: #1a3a5e;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c5282;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+        }
+
+        input[type="submit"] {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.3);
+            background: #38a169;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            color: #4299e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #3182ce;
+            transform: translateX(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✏️ Edit Patient Record</h1>
+        
+        <form action="{{ url_for('edit_patient', id=patient[0]) }}" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" name="name" value="{{ patient[1] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" name="age" value="{{ patient[2] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="disease">Primary Diagnosis</label>
+                <input type="text" name="disease" value="{{ patient[3] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" name="phone" value="{{ patient[5] }}">
+            </div>
+
+            <input type="submit" value="Update Patient Record">
+        </form>
+
+        <a href="{{ url_for('view_patients') }}" class="back-link">
+            ← Back to Patient List
+        </a>
+    </div>
+</body>
+</html>

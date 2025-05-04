@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #cbebff 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgb(255, 255, 255);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 3rem;
+        }
+
+        h1 {
+            color: #1a3a5e;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-size: 2.5rem;
+        }
+
+        .section {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 15px;
+        }
+
+        h3 {
+            color: #2c5282;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-size: 1.4rem;
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 153, 225, 0.3);
+            background: #3182ce;
+        }
+
+        .header-decoration {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header-decoration::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #4299e1;
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+        .button {
+            background: #4293e1;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-decoration">
+            <h1>🏥 Hospital Management System 🏥</h1>
+        </div>
+
+        <div class="section">
+            <h3>Patient Management</h3>
+            
+            <!-- First Row -->
+            <div class="button-group">
+                <a href="{{ url_for('add_patient') }}" class="button">
+                    ➕ Add New Patient
+                </a>
+                
+
+    
+
+                <a href="{{ url_for('view_patients') }}" class="button">
+                    👥 View All Patients
+                </a>
+            </div>
+
+            <!-- Second Row -->
+    
+        </div>
+    </div>
+</body>
+</html>
